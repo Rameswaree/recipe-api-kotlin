@@ -5,8 +5,8 @@ import jakarta.persistence.*
 @Entity
 class Recipe(@Id
              @GeneratedValue(strategy = GenerationType.IDENTITY)
-             var id: Long? = null,
-             var name: String? = null,
+             var id: Long,
+             var name: String,
              var vegetarian: Boolean = false,
              var servings: Int = 1,
              var instructions: String? = null,

@@ -6,5 +6,5 @@ data class RecipeResponse(
     val vegetarian: Boolean,
     val servings: Int,
     val ingredients: List<IngredientResponse>,
-    val instructions: String
+    val instructions: String?
 )
