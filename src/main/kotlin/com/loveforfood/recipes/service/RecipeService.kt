@@ -20,6 +20,13 @@ class RecipeService(
     fun getAllRecipes(): List<RecipeResponse> =
         recipeRepository.findAll().map { createRecipeResponse(it) }
 
+    fun deleteRecipe(recipeId: Long) {
+        if (!recipeRepository.existsById(recipeId)) {
+            throw RecipeNotFoundException("Recipe not found with id: $recipeId")
+        }
+        recipeRepository.deleteById(recipeId)
+    }
+
     private fun createRecipeResponse(recipe: Recipe) : RecipeResponse {
         val ingredients = recipe.ingredients.map { ingredient ->
             IngredientResponse(ingredient.id, ingredient.name)
